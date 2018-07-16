@@ -1,0 +1,41 @@
+{
+  "getNewsList": [
+    {
+      "id": 1,
+      "title": "新闻新闻新闻11111",
+      "url": "http://starcraft.com"
+    },
+    {
+      "id": 2,
+      "title": "新闻新闻新闻11111",
+      "url": "http://warcraft.com"
+    },
+    {
+      "id": 3,
+      "title": "新闻新闻新闻11111",
+      "url": "http://overwatch.com"
+    },
+    {
+      "id": 4,
+      "title": "新闻新闻新闻11111",
+      "url": "http://hearstone.com"
+    }
+  ],
+  "login": {
+    "name": "Henderson",
+    "userId": 123123
+  },
+  "getPrice": {
+    "buyNumber": 2,
+    "buyType": 0,
+    "period": 1,
+    "version": "0,1"
+  },
+  "createOrder": {
+    "buyNumber": 2,
+    "buyType": 0,
+    "period": 1,
+    "version": "0,1",
+    "bankId": 101
+  }
+}
