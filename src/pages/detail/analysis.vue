@@ -101,6 +101,12 @@
           确认购买
         </div>
       </my-dialog>
+      <my-dialog :is-show="isShowErrDialog" @on-close="hideErrDialog">
+        支付失败！
+      </my-dialog>
+      <check-order :is-show-check-dialog="isShowCheckOrder"
+      :order-id="orderId" @on-close-check-dialog="hideCheckOrder"
+      ></check-order>
   </div>
 </template>
 
@@ -111,6 +117,7 @@ import VChooser from '../../components/base/chooser'
 import VMulchooser from '../../components/base/multiplychooser'
 import Dialog from '../../components/base/dialog'
 import BankChooser from '../../components/bankChooser'
+import CheckOrder from '../../components/checkOrder'
 import _ from 'lodash'
 export default {
   components: {
@@ -119,7 +126,8 @@ export default {
       VChooser,
       VMulchooser,
       MyDialog: Dialog,
-      BankChooser
+      BankChooser,
+      CheckOrder
   },
   methods: {
    onParamChange (attr, val) {
@@ -159,8 +167,17 @@ export default {
    showPayDialog () {
     this.isShowPayDialog = true
    },
+   hidePayDialog () {
+    this.isShowPayDialog = false
+   },
    hideShowPayDialog () {
     this.isShowPayDialog = false 
+   },
+   hideErrDialog () {
+    this.isShowErrDialog = false
+   },
+   hideCheckOrder (){
+    this.isShowCheckOrder = false
    },
    onChangeBanks (bankObj) {
       this.bankId = bankObj.id
@@ -179,7 +196,11 @@ export default {
     }
     this.$http.post('/api/createOrder',reqParams).then((res) =>{
       this.orderId = res.data.orderId
-      console.log(this.orderId)
+      this.isShowCheckOrder = true
+      this.isShowPayDialog = false
+    },(err) => {
+        this.isShowBuyDialog = false
+        this.isShowErrDialog = true
     })
    }
  },
@@ -200,6 +221,9 @@ export default {
        versions:[],
        period:{},
        price:200,
+       isShowCheckOrder:false,
+       isShowErrDialog:false,
+       //isShowBuyDialog:
        productTypes:[
          {
             label:'入门版',
