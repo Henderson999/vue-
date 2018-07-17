@@ -38,7 +38,13 @@
     "version": "0,1",
     "bankId": 201
   },
-  "checkOrder":{
-    
+  "checkOrder": {
+    "orderId": "SDASDASD"
+  },
+  "getOrderList": {
+    "query": "",
+    "productId": 0,
+    "startDate": "",
+    "endDate": ""
   }
 }

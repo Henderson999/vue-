@@ -8,6 +8,7 @@ import VueResource from 'vue-resource'
 import App from './App'
 import axios from 'axios'
 import DetailPage from './pages/detail'
+import OrderListPage from './pages/orderList'
 import DetailAnaPage from './pages/detail/analysis'
 import DetailCouPage from './pages/detail/count'
 import DetailForPage from './pages/detail/forecast'
@@ -26,6 +27,10 @@ let router = new VueRouter({
 	 {
 	 	path:'/',
 	 	component: IndexPage
+	 },
+	 {
+	 	path:'/orderList',
+	 	component: OrderListPage
 	 },
 	 {
 	 	path:'/detail',

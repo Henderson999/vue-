@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { eventBus }
 export default {
   props: {
      selections:{
@@ -23,13 +24,20 @@ export default {
      	}]
      }
   }, 
+   mounted () {
+      eventBus.$on('reset-component',() =>{
+      	this.isDrop = false
+      })
+   },
    methods: {
-       toggleDrop () {
+       toggleDrop (event) {
+       	event.stopPropagation()
+       	eventBus.$emit('reset-component')
        	this.isDrop = !this.isDrop
        },
        chooseSelection (index) {
        	this.nowIndex = index
-       	this.isDrop = false
+       	//this.isDrop = false
        	this.$emit('on-change',this.selections[this.nowIndex])
        }
   	},
@@ -57,6 +65,7 @@ export default {
 	height: 25px;
 	line-height: 25px;
 	border-radius: 3px;
+	background: #fff;
 }
 .selection-show .arrow {
 	display: inline-block;
