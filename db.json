@@ -36,6 +36,9 @@
     "buyType": 0,
     "period": 1,
     "version": "0,1",
-    "bankId": 101
+    "bankId": 201
+  },
+  "checkOrder":{
+    
   }
 }
